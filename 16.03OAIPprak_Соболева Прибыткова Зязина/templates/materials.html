@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Списочек материальчиков</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Автор</th>
+            <th>Действие</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for material in materials %}
+        <tr>
+            <td>{{ material.id }}</td>
+            <td>{{ material.title }}</td>
+            <td>{{ material.category }}</td>
+            <td>{{ material.author }}</td>
+            <td>
+                <a href="/materials/{{ material.id }}">ПДетальнее</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">Списочек пуст</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
